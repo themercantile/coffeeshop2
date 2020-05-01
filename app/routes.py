@@ -8,4 +8,4 @@ from app.covform import CoffeeForm
 @app.route("/index")
 def index():
   coffeeForm=CoffeeForm()
-  return render_template("index.html")
+  return render_template("index.html", form=coffeeForm)

@@ -1,5 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>This is content from index.html</p>
+  <!-- Form data should be in here -->
+  <h1>Select your drink</h1>
+  <form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.username.label }} {{ form.username(size=32) }}<br>      
+    </p>
+    <p>
+      {{ form.email.label }} {{ form.email(size=42) }}<br>      
+    </p>
+    <p>
+      {{ form.drink_type.label }} {{ form.drink_type() }}<br>
+    </p>
+    <p>
+      {{ form.milk_type.label }} {{ form.milk_type() }}<br>
+    </p>
+    <p>
+      {{ form.sugar.label }} {{ form.sugar() }}<br>
+    </p>
+    <p>{{ form.payment() }} {{ form.payment.label }}</p><br>
+    <p>{{ form.submit() }}</p>
+  </form>
 {% endblock %}
+
+<!--
+  username = StringField("Your Name", validators=[Length(min=2, max=30), DataRequired()])
+  #email = EmailField('Email', [validators.Length(min=6, max=50), validators.Email()])  <-- Example from Reddit
+  email = EmailField("Email", validators=[Length(min=6, max=40), Email(message=("Not a valid email address")), DataRequired()])
+  drink_type = SelectField("Name yer poison", choices=[("flatWhite", "Flat White"), ("cappucino", "Cappucino"), ("black", "Black"), ("mocha", "Mocha"), ("hotChoc", "Hot Chocolate")])
+  milk_type = SelectField("Milk", choices = [("fullCream", "Full Cream"), ("hilo", "Hi-Lo"), ("skim", "Skim"), ("almond", "Almond"), ("soy", "Soy"), ("none", "None")])
+  sugar = SelectField("Sugar", choices = [("one", "One"), ("two", "Two"), ("three", "Three"), ("none", "None")])
+  payment = BooleanField("Paid")
+  submit = SubmitField("Submit Order")
+-->
