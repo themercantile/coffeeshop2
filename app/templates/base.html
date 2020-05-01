@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Covfefe 4 U</title>
+  </head>
+  <body>
+    <div>
+      <a href="{{ url_for('index') }}">Home</a>
+      <!-- the {{ url_for('index') }} is a bookmark referring to the 'index' defined in the view (which is in routes.py) -->      
+    </div>
+    <hr>
+    {% block content %}<!-- This is where index.html is rendered -->{% endblock %}
+  </body>
+</html>
