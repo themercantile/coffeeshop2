@@ -1,0 +1,28 @@
+<!-- This is supposed to display the order in a table -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+  <tr>
+    <th>Beverage</th>
+    <th>Milk</th>
+    <th>Sugar</th>
+    <th>Extras</th>
+    <th>Email</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Paid?</th>
+  </tr>
+  <tr>
+    <td>{{ data[0] }}</td>
+    <td>{{ data[1] }}</td>
+    <td>{{ data[2] }}</td>
+    <td>{{ data[3] }}</td>
+    <td>{{ data[4] }}</td>
+    <td>{{ data[5] }}</td>
+    <td>$$$MONEY!!!</td>
+    <td>{{ data[6] }}</td>
+  </tr>
+</table>
+{% endblock %}

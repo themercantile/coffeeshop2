@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html>
   <head>
     <meta charset="UTF-8">
     <title>Covfefe 4 U</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div>
-      <a href="{{ url_for('index') }}">Home</a>
+    <div class="container-fluid">
+      <h1 class="mr-sm-2"><a class="mr-sm-2" href="{{ url_for('index') }}">Home</a>Coffee Ordering Page</h1>
+      
       <!-- the {{ url_for('index') }} is a bookmark referring to the 'index' defined in the view (which is in routes.py) -->      
     </div>
     <hr>
+    <div class="container-fluid">
     {% block content %}<!-- This is where index.html is rendered -->{% endblock %}
+    </div>
   </body>
 </html>

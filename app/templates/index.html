@@ -2,26 +2,35 @@
 
 {% block content %}
   <!-- Form data should be in here -->
-  <h1>Select your drink</h1>
+  <h1>Beverage Order Form</h1>
   <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
-    <p>
-      {{ form.username.label }} {{ form.username(size=32) }}<br>      
-    </p>
-    <p>
-      {{ form.email.label }} {{ form.email(size=42) }}<br>      
-    </p>
-    <p>
-      {{ form.drink_type.label }} {{ form.drink_type() }}<br>
-    </p>
-    <p>
-      {{ form.milk_type.label }} {{ form.milk_type() }}<br>
-    </p>
-    <p>
-      {{ form.sugar.label }} {{ form.sugar() }}<br>
-    </p>
-    <p>{{ form.payment() }} {{ form.payment.label }}</p><br>
-    <p>{{ form.submit() }}</p>
+    <div>
+      {{ form.username.label }}:{{ form.username(size=32) }}
+      {% for error in form.username.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+    </div>
+    <div>
+      {{ form.email.label }}: {{ form.email(size=42) }}
+      {% for error in form.email.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+    </div>
+    <div>
+      {{ form.drink_type.label }}: {{ form.drink_type() }}
+    </div>
+    <div>
+      {{ form.milk_type.label }}: {{ form.milk_type() }}
+    </div>
+    <div>
+      {{ form.sugar.label }}: {{ form.sugar() }}
+    </div>
+    <div>
+      {{ form.extras.label }}: {{ form.extras() }}
+    </div>
+    <div>{{ form.payment() }} {{ form.payment.label }}</div>
+    <div>{{ form.submit() }}</div>
   </form>
 {% endblock %}
 
@@ -32,6 +41,7 @@
   drink_type = SelectField("Name yer poison", choices=[("flatWhite", "Flat White"), ("cappucino", "Cappucino"), ("black", "Black"), ("mocha", "Mocha"), ("hotChoc", "Hot Chocolate")])
   milk_type = SelectField("Milk", choices = [("fullCream", "Full Cream"), ("hilo", "Hi-Lo"), ("skim", "Skim"), ("almond", "Almond"), ("soy", "Soy"), ("none", "None")])
   sugar = SelectField("Sugar", choices = [("one", "One"), ("two", "Two"), ("three", "Three"), ("none", "None")])
+  extras = SelectField("Extras", choices = [("xshot", "Extra Shot"), ("mmallow", "Marshmallow"), ("nekkidSukes", "Naked Sukes")])
   payment = BooleanField("Paid")
   submit = SubmitField("Submit Order")
 -->
